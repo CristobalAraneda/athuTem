@@ -10,6 +10,9 @@ const port = process.env.PORT;
 
 //configuracio Cores
 app.use( cors() );
+
+//letura y parseo del body
+app.use( express.json() );
 // Conect BD
 dbConnect();
 
@@ -18,9 +21,9 @@ app.get('/', (req, res) => {
   res.json({
     ok: true,
     msg:"hola brother"
-  })
+  });
 });
-
+app.use('/api/usuarios', require('./routes/usuario'));
 
 app.listen(process.env.PORT, () => {
   console.log(`app listening on port ${port}`)
