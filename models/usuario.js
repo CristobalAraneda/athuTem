@@ -30,8 +30,9 @@ const UsuarioShema = Schema({
 
 });
 
+//extre del objetos los elmente que no se desea mostar en el respuesta
 UsuarioShema.method('toJSON', function() {
-    const { __v, _id, ...object } = this.toObject();
+    const { __v, _id, password, ...object } = this.toObject();
     object.uid = _id;
     return object;
 })
