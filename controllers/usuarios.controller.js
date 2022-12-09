@@ -1,7 +1,8 @@
 const { resp } = require('express');
 const bcrypt = require('bcryptjs');
 
-const Usuario = require('../models/usuario');
+const Usuario = require('../models/usuario.models');
+const { generarJWT } = require('../helpers/jwt');
 
 const getUsuarios = async(req, res) => {
 
@@ -9,7 +10,8 @@ const getUsuarios = async(req, res) => {
 
     res.json({
       ok: true, 
-      usuarios
+      usuarios,
+      uid : req.uid
     });
   }
 const crearUsuarios = async(req, resp) => {
@@ -38,10 +40,17 @@ const crearUsuarios = async(req, resp) => {
 
        //guarda el usuario
        await usuario.save();
+
+       //gerena token new user 
+
+       const token = await generarJWT( usuario.id );
+
+
         
        resp.status(201).json({
          ok: true,
-         usuario
+         usuario,
+         token
        });
       
      } catch (error) {
@@ -92,7 +101,8 @@ const crearUsuarios = async(req, resp) => {
 
       resp.json({
         ok: true,
-        usuarioActualizado
+        usuarioActualizado,
+        uid : req.uid
       })
       
     } catch (error) {
@@ -125,7 +135,8 @@ const crearUsuarios = async(req, resp) => {
 
       resp.status(202).json({
           ok:true,
-          msg: "Usuario Eliminado"   
+          msg: "Usuario Eliminado",
+          uid : req.uid   
 
       })
       
