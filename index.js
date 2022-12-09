@@ -16,14 +16,9 @@ app.use( express.json() );
 // Conect BD
 dbConnect();
 
-//rutas
-app.get('/', (req, res) => {
-  res.json({
-    ok: true,
-    msg:"hola brother"
-  });
-});
-app.use('/api/usuarios', require('./routes/usuario'));
+//rutas 
+app.use('/api/usuarios', require('./routes/usuario.router'));
+app.use('/api/login', require('./routes/auth.router'));
 
 app.listen(process.env.PORT, () => {
   console.log(`app listening on port ${port}`)
