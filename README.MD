@@ -1,19 +1,19 @@
 # AuthApi
 ## Descripcion
-Api de Autetificacion la cuale genera token con el rol y permisos del usuario
+Api de Autetificacion la cuale genera token y crud de usuarios 
 ## Restituir aplicación
 ```
 npm install
 ```
-## Incinciar Serve DEV
+## Incinciar Serve 
 ```
-doker compose -f docker-compose-dev.yml up
+doker compose docker-compose.yml up -d
 ```
-## Detener Serve DEV
+## Detener Serve 
 ```
-doker compose -f docker-compose-dev.yml down al usar el flag -d
+doker compose docker-compose.yml down 
 ```
-## Detener Serve DEV
+## Detener Serve url
 ```
 http://localhost:3000/
 ```
