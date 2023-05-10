@@ -1,6 +1,6 @@
 # AuthApi
 ## Descripcion
-Api de Autetificacion la cuale genera token y crud de usuarios 
+Api de Autetificacion la cuale genera token y  rest-crud de usuarios com mongo 
 ## Restituir aplicación
 ```
 npm install
