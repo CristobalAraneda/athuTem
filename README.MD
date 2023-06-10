@@ -13,7 +13,7 @@ doker compose docker-compose.yml up -d
 ```
 doker compose docker-compose.yml down 
 ```
-## Detener Serve url
+## Serve url
 ```
 http://localhost:3000/
 ```
