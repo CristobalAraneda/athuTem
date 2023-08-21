@@ -17,8 +17,8 @@ app.use( express.json() );
 dbConnect();
 
 //rutas 
-app.use('/api/usuarios', require('./routes/usuario.router'));
-app.use('/api/login', require('./routes/auth.router'));
+app.use('/api/v1/usuarios', require('./routes/usuario.router'));
+app.use('/api/v1/login', require('./routes/auth.router'));
 
 app.listen(process.env.PORT, () => {
   console.log(`app listening on port ${port}`)
